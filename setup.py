@@ -3,7 +3,7 @@ from setuptools import setup
 import os.path
 
 setup(name='passencode',
-      version='1.0.0',
+      version='2.0.0',
       description='passencode',
       author='Nicolas Vanhoren',
       author_email='nicolas.vanhoren@unknown.com',
@@ -11,13 +11,13 @@ setup(name='passencode',
       py_modules = [],
       packages=[],
       scripts=["passencode"],
-      long_description="Simple program to generate a password hash using werkzeug's generate_password_hash() function.",
+      long_description="Simple program to generate a password hash using passlib",
       keywords="",
       license="MIT",
       classifiers=[
           ],
       install_requires=[
-        "werkzeug >= 0.9.6",
+        "passlib",
         "click >= 3.3",
         ],
      )

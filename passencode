@@ -24,15 +24,20 @@
 
 from __future__ import unicode_literals, print_function, absolute_import
 
-import werkzeug.security
 import click
 
+from passlib.context import CryptContext
+
+default_crypt_context = CryptContext(
+    [b'pbkdf2_sha512', b'md5_crypt'],
+    deprecated=[b'md5_crypt'],
+)
+
 @click.command()
-@click.option('--method', '-m', default="pbkdf2:sha512:10000", help="Method for werkzeug's generate_password_hash() function.")
 @click.argument('password')
-def passencode(method, password):
-    """Simple program to generate a password hash using werkzeug's generate_password_hash() function"""
-    print(werkzeug.security.generate_password_hash(password, method))
+def passencode(password):
+    """Simple program to generate a password hash using passlib"""
+    print(default_crypt_context.encrypt(password))
 
 if __name__ == '__main__':
     passencode()
