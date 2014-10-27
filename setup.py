@@ -4,23 +4,21 @@ import os.path
 
 setup(name='passencode',
       version='1.0.0',
-      description='Passencode',
+      description='passencode',
       author='Nicolas Vanhoren',
       author_email='nicolas.vanhoren@unknown.com',
-      url='http://pygreen.neoname.eu',
-      py_modules = ['pygreen'],
+      url='https://github.com/nicolas-van/passencodeu',
+      py_modules = [],
       packages=[],
-      scripts=["pygreen"],
-      long_description="A micro web framework/static web site generator.",
+      scripts=["passencode"],
+      long_description="Simple program to generate a password hash using werkzeug's generate_password_hash() function.",
       keywords="",
       license="MIT",
       classifiers=[
           ],
       install_requires=[
-        "flask >= 0.10.1",
-        "mako >= 0.8.0",
-        "argparse",
-        "markdown",
+        "werkzeug >= 0.9.6",
+        "click >= 3.3",
         ],
      )
 
