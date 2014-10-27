@@ -1,0 +1,15 @@
+#! /usr/bin/python
+from __future__ import unicode_literals, print_function, absolute_import
+
+import werkzeug.security
+import click
+
+@click.command()
+@click.option('--method', '-m', default="pbkdf2:sha512:10000", help="Method for werkzeug's generate_password_hash() function.")
+@click.argument('password')
+def passencode(method, password):
+    """Simple program to generate a password hash using werkzeug's generate_password_hash() function"""
+    print(werkzeug.security.generate_password_hash(password, method))
+
+if __name__ == '__main__':
+    passencode()
